@@ -6,8 +6,8 @@ module ActiveRecord::Correctable
       require 'activerecord/correctable/finders/table_name_finder'
 
       DidYouMean.finders.merge!({
-        'ActiveModel::UnknownAttributeError'  => AttributeNameFinder,
-        'ActiveRecord::UnknownAttributeError' => AttributeNameFinder,
+        'ActiveModel::UnknownAttributeError'  => AttributeNameFinder, # >= Rails 5.0
+        'ActiveRecord::UnknownAttributeError' => AttributeNameFinder, # <= Rails 4.2
         'ActiveRecord::StatementInvalid'      => ByCause.new({
           'PG::UndefinedTable'    => TableNameFinder,
           'PG::UndefinedColumn'   => ColumnNameFinder,
