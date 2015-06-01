@@ -1,3 +1,23 @@
 language: ruby
+sudo:     false
+cache:    bundler
+script:   bundle exec rake test
+
 rvm:
+  - 2.1
   - 2.2.2
+  - ruby-head
+
+gemfile:
+  - gemfiles/activerecord_40.gemfile
+  - gemfiles/activerecord_41.gemfile
+  - gemfiles/activerecord_42.gemfile
+  - gemfiles/activerecord_edge.gemfile
+
+env:
+  - DATABASE_ADAPTER=sqlite3
+  - DATABASE_ADAPTER=postgres
+  # - DATABASE_ADAPTER=mysql2
+
+matrix:
+  fast_finish: true
