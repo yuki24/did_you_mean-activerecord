@@ -37,9 +37,9 @@ User.new(nmee: "wrong flrst name")
 ```ruby
 User.select("suers.first_name").to_a
 # => ActiveRecord::StatementInvalid: PG::UndefinedTable: ERROR:  missing FROM-clause entry for table "suers"
-#    LINE 1: SELECT suers.foo FROM "users"
+#    LINE 1: SELECT suers.first_name FROM "users"
 #                   ^
-#    : SELECT suers.foo FROM "users"
+#    : SELECT suers.first_name FROM "users"
 #
 #     Did you mean? users
 #
