@@ -6,6 +6,9 @@ script:   bundle exec rake test
 before_install:
   - gem i bundler -v=1.10.3
 
+before_script:
+  - psql -c 'create database activerecord_correctable;' -U postgres
+
 rvm:
   - 2.1
   - 2.2.2
