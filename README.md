@@ -1,15 +1,14 @@
 # Activerecord::Correctable
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/activerecord/correctable`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+More 'Did you mean?' experience on Rails.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'activerecord-correctable'
+gem 'did_you_mean',             github: 'yuki24/did_you_mean'
+gem 'activerecord-correctable', github: 'yuki24/activerecord-correctable'
 ```
 
 And then execute:
@@ -20,19 +19,56 @@ Or install it yourself as:
 
     $ gem install activerecord-correctable
 
-## Usage
 
-TODO: Write usage instructions here
+## Examples
 
-## Development
+### ActiveRecord::UnknownAttributeError
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `bin/console` for an interactive prompt that will allow you to experiment.
+```ruby
+User.new(nmee: "wrong flrst name")
+# => ActiveRecord::UnknownAttributeError: unknown attribute: nmee
+#
+#     Did you mean? name: string
+#
+```
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release` to create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+### ActiveRecord::StatementInvalid (cause: PG::UndefinedTable)
+
+```ruby
+User.select("suers.first_name").to_a
+# => ActiveRecord::StatementInvalid: PG::UndefinedTable: ERROR:  missing FROM-clause entry for table "suers"
+#    LINE 1: SELECT suers.foo FROM "users"
+#                   ^
+#    : SELECT suers.foo FROM "users"
+#
+#     Did you mean? users
+#
+```
+
+### ActiveRecord::StatementInvalid (cause: PG::UndefinedColumn)
+
+```ruby
+User.select("firstname").to_a
+# => ActiveRecord::StatementInvalid: PG::UndefinedColumn: ERROR:  column "firstname" does not exist
+#    LINE 1: SELECT firstname FROM "users"
+#                   ^
+#    : SELECT firstname FROM "users"
+#
+#     Did you mean? first_name
+#
+```
+
+## Support
+
+This gem works with `pg` and `sqlite3` at this point.
+
+## TODO
+
+  * Support for mysql2 gem
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/activerecord-correctable/fork )
+1. Fork it ( https://github.com/yuki24/activerecord-correctable/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
