@@ -20,8 +20,4 @@ MiniTest::Test.send :include, DidYouMean::TestHelper
 
 require 'rails'
 require 'did_you_mean/activerecord' # TODO: change it to "active_record"
-require 'fake_app'
-
-
-
-
+require 'rails_app/fake_app'
