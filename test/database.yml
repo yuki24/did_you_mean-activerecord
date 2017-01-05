@@ -4,12 +4,12 @@ sqlite3:
 
 mysql2:
   adapter: mysql2
-  database: activerecord_correctable
+  database: did_you_mean_activerecord
   username:
   encoding: utf8
 
 postgres:
   adapter: postgresql
-  database: activerecord_correctable
+  database: did_you_mean_activerecord
   username: <%= "postgres" if ENV["TRAVIS"] %>
   min_messages: warning

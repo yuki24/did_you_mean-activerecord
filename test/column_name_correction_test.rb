@@ -13,11 +13,11 @@ class ColumnNameCorrectionTest < Minitest::Test
     CreateUserTable.down
   end
 
-  def test_suggestions
-    assert_suggestion "first_name", @error.suggestions
+  def test_corrections
+    assert_correction "first_name", @error.corrections
   end
 
   def test_did_you_mean?
-    assert_match "Did you mean? first_name", @error.message
+    assert_match "Did you mean?  first_name", @error.message
   end
 end

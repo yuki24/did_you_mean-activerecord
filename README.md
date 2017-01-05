@@ -8,7 +8,7 @@ Add this line to your application's Gemfile:
 
 ```ruby
 gem 'did_you_mean',             github: 'yuki24/did_you_mean'
-gem 'activerecord-correctable', github: 'yuki24/activerecord-correctable'
+gem 'did_you_mean-activerecord', github: 'yuki24/did_you_mean-activerecord'
 ```
 
 And then execute:
@@ -17,7 +17,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install activerecord-correctable
+    $ gem install did_you_mean-activerecord
 
 
 ## Examples
@@ -68,7 +68,7 @@ This gem works with `pg` and `sqlite3` at this point.
 
 ## Contributing
 
-1. Fork it ( https://github.com/yuki24/activerecord-correctable/fork )
+1. Fork it ( https://github.com/yuki24/did_you_mean-activerecord/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)

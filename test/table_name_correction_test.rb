@@ -14,16 +14,16 @@ class TableNameCorrectionWithSelectTest < Minitest::Test
     CreateUserTable.down
   end
 
-  def test_suggestions
+  def test_corrections
     skip if sqlite3?
 
-    assert_suggestion "users", @error.suggestions
+    assert_correction "users", @error.corrections
   end
 
   def test_did_you_mean?
     skip if sqlite3?
 
-    assert_match "Did you mean? users", @error.message
+    assert_match "Did you mean?  users", @error.message
   end
 
   private
@@ -47,11 +47,11 @@ class TableNameCorrectionWithFromTest < Minitest::Test
     CreateUserTable.down
   end
 
-  def test_suggestions
-    assert_suggestion "users", @error.suggestions
+  def test_corrections
+    assert_correction "users", @error.corrections
   end
 
   def test_did_you_mean?
-    assert_match "Did you mean? users", @error.message
+    assert_match "Did you mean?  users", @error.message
   end
 end

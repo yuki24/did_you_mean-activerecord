@@ -1,17 +1,17 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'activerecord/correctable/version'
+require 'did_you_mean/activerecord/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "activerecord-correctable"
-  spec.version       = ActiveRecord::Correctable::VERSION
+  spec.name          = "did_you_mean-activerecord"
+  spec.version       = DidYouMean::ActiveRecord::VERSION
   spec.authors       = ["Yuki Nishijima"]
   spec.email         = ["mail@yukinishijima.net"]
 
-  spec.summary       = %q{"Did you mean" experience for attribute, column and table names.}
-  spec.description   = %q{"Did you mean" experience for attribute, column and table names: activerecord-correctable is an extension for the di_you_mean and Active Record.}
-  spec.homepage      = "http://github.com/yuki24/activerecord-correctable"
+  spec.summary       = %q{"Did you mean" experience in Rails}
+  spec.description   = %q{did_you_mean-activerecord adds a "Did you mean" feature to ActiveRecord.}
+  spec.homepage      = "http://github.com/yuki24/did_you_mean-activerecord"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
