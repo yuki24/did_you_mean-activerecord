@@ -5,6 +5,7 @@ script:   bundle exec rake test
 
 before_install:
   - gem i bundler
+  - gem uni did_you_mean -v=1.0.0
 
 before_script:
   - psql -c 'create database did_you_mean_activerecord;' -U postgres
