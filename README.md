@@ -1,4 +1,4 @@
-# Activerecord::Correctable
+# DidYouMean::ActiveRecord
 
 More 'Did you mean?' experience on Rails.
 
