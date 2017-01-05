@@ -1,4 +1,4 @@
-# DidYouMean::ActiveRecord
+# DidYouMean::ActiveRecord [![Build Status](https://travis-ci.org/yuki24/did_you_mean-activerecord.svg?branch=master)](https://travis-ci.org/yuki24/did_you_mean-activerecord)
 
 More 'Did you mean?' experience on Rails.
 
