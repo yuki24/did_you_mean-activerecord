@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-gem "did_you_mean", :github => "yuki24/did_you_mean"
+gem "did_you_mean", ">= 1.0.2"
 gem "sqlite3"
 gem "pg"
 gem "mysql2"

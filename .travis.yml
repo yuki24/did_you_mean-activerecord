@@ -10,12 +10,12 @@ before_script:
   - psql -c 'create database activerecord_correctable;' -U postgres
 
 rvm:
-  - 2.1
-  - 2.2.2
+  - 2.4.0
+  - 2.3.3
   - ruby-head
+  - jruby-9.1.6.0
 
 gemfile:
-  - gemfiles/activerecord_40.gemfile
   - gemfiles/activerecord_41.gemfile
   - gemfiles/activerecord_42.gemfile
   - gemfiles/activerecord_edge.gemfile
@@ -26,11 +26,14 @@ env:
   # - DATABASE_ADAPTER=mysql2
 
 matrix:
-
-matrix:
   exclude:
-    - rvm: 2.1
-      gemfile: gemfiles/activerecord_edge.gemfile
-    - rvm: 2.1
-      gemfile: gemfiles/activerecord_edge.gemfile
-  fast_finish: true
+    - rvm: 2.4.0
+      gemfile: gemfiles/active_record_41.gemfile
+    - rvm: 2.4.0
+      gemfile: gemfiles/active_record_42.gemfile
+    - rvm: ruby-head
+      gemfile: gemfiles/active_record_41.gemfile
+  allow_failures:
+    - rvm: ruby-head
+    - rvm: jruby-9.1.6.0
+    - gemfile: gemfiles/active_record_edge.gemfile
