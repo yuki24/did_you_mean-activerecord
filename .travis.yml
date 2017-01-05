@@ -16,9 +16,9 @@ rvm:
   - jruby-9.1.6.0
 
 gemfile:
-  - gemfiles/activerecord_41.gemfile
-  - gemfiles/activerecord_42.gemfile
   - gemfiles/activerecord_50.gemfile
+  - gemfiles/activerecord_42.gemfile
+  - gemfiles/activerecord_41.gemfile
   - gemfiles/activerecord_edge.gemfile
 
 env:
