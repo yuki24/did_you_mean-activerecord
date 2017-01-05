@@ -28,12 +28,12 @@ env:
 matrix:
   exclude:
     - rvm: 2.4.0
-      gemfile: gemfiles/active_record_41.gemfile
+      gemfile: gemfiles/activerecord_41.gemfile
     - rvm: 2.4.0
-      gemfile: gemfiles/active_record_42.gemfile
+      gemfile: gemfiles/activerecord_42.gemfile
     - rvm: ruby-head
-      gemfile: gemfiles/active_record_41.gemfile
+      gemfile: gemfiles/activerecord_41.gemfile
   allow_failures:
     - rvm: ruby-head
     - rvm: jruby-9.1.6.0
-    - gemfile: gemfiles/active_record_edge.gemfile
+    - gemfile: gemfiles/activerecord_edge.gemfile
