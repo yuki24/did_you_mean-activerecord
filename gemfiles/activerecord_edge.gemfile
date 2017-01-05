@@ -7,7 +7,7 @@ git "git://github.com/rails/rails.git" do
   gem "activerecord", :require => "active_record"
 end
 
-gem "did_you_mean", "1.0.2"
+gem "did_you_mean", ">= 1.0.2"
 gem "sqlite3"
 gem "pg"
 gem "mysql2"
