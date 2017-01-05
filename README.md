@@ -7,7 +7,6 @@ More 'Did you mean?' experience on Rails.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'did_you_mean',             github: 'yuki24/did_you_mean'
 gem 'did_you_mean-activerecord', github: 'yuki24/did_you_mean-activerecord'
 ```
 
@@ -60,7 +59,7 @@ User.select("firstname").to_a
 
 ## Support
 
-This gem works with `pg` and `sqlite3` at this point.
+Currently, this gem only works with `pg` and `sqlite3`.
 
 ## TODO
 
