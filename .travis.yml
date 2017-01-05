@@ -4,7 +4,7 @@ cache:    bundler
 script:   bundle exec rake test
 
 before_install:
-  - gem i bundler -v=1.10.3
+  - gem i bundler
 
 before_script:
   - psql -c 'create database activerecord_correctable;' -U postgres
