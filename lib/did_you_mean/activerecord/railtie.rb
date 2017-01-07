@@ -34,30 +34,20 @@ module DidYouMean
       end
 
       def new(exception)
-        cause = if exception.respond_to?(:cause)
-                  exception.cause
-                elsif exception.respond_to?(:original_exception)
-                  exception.original_exception
-                end
-
-        @cause_mapping.fetch(cause.class.to_s, ::DidYouMean::NullChecker).new(exception)
+        @cause_mapping.fetch(exception.cause.class.to_s, ::DidYouMean::NullChecker).new(exception)
       end
     end
 
     class ByRegex
+      EXCEPTION_TO_S_METHOD = Exception.instance_method(:to_s)
+
       def initialize(hash)
         @regex_mapping = hash
       end
 
       def new(exception)
-        msg = if exception.respond_to?(:original_message)
-                exception.original_message
-              else
-                exception.message
-              end
-
         @regex_mapping.each do |regex, finder_class|
-          return finder_class.new(exception) if regex =~ msg
+          return finder_class.new(exception) if regex =~ EXCEPTION_TO_S_METHOD.bind(exception).call
         end
 
         ::DidYouMean::NullChecker.new(exception)
