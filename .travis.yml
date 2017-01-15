@@ -14,7 +14,7 @@ rvm:
   - 2.4.0
   - 2.3.3
   - ruby-head
-  - jruby-9.1.6.0
+  - jruby-9.1.7.0
 
 gemfile:
   - gemfiles/activerecord_50.gemfile
@@ -37,5 +37,5 @@ matrix:
       gemfile: gemfiles/activerecord_41.gemfile
   allow_failures:
     - rvm: ruby-head
-    - rvm: jruby-9.1.6.0
+    - rvm: jruby-9.1.7.0
     - gemfile: gemfiles/activerecord_edge.gemfile
